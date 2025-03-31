@@ -1,8 +1,24 @@
 # AVS MCP Server
 
-The AVS MCP server acts as an interface between the AI Agents and the AVS network, enabling you to execute any AVS Tasks. The following MCP server includes functionality to fetch the `ETHUSDT` price and call the `sendTask` RPC method to trigger the AVS [Task](https://docs.othentic.xyz/main/avs-framework/othentic-consensus/task-and-task-definitions#task).
+The AVS MCP server acts as an interface between the AI Agents and the AVS network, enabling you to execute any AVS [Tasks](https://docs.othentic.xyz/main/avs-framework/othentic-consensus/task-and-task-definitions#task). 
+
+![alt text](image.png)
+
+It allows AI agents to interact with various tools and decentralized networks:
+
+- DeFi trading agents interface with intent solver AVS to bridge liquidity and execute transactions across VMs.
+
+- Autonomous agents query indexed blockchain data for real-time decision-making.
+
+- Workflow automation enables AI-driven actions across integrated applications.
+
+- Verifiable data access through oracle AVS ensures reliable AI responses.
+
+
+The following MCP server includes functionality to fetch the `ETHUSDT` price and call the `sendTask` RPC method to trigger the AVS Task.
 
 ## Components
+
 ### Tools  
 
 - **get-price**: Fetches the price of a cryptocurrency pair using the Binance API.  
@@ -56,7 +72,7 @@ Replace `ADD_ABSOLUTE_PATH` and `YOUR_PERFORMER_PRIVATE_KEY_HERE` with the appro
   "mcpServers": {
     "AVSPerformer": {
       "command": "node",
-      "args":["ADD_ABSOLUTE_PATH/simple-price-oracle-avs-example/MCP_Execution_Server/build/index.js"],
+      "args":["ADD_ABSOLUTE_PATH/avs-mcp-example/MCP_Execution_Server/build/index.js"],
       "env": {
         "PRIVATE_KEY_PERFORMER": "YOUR_PERFORMER_PRIVATE_KEY_HERE",
         "OTHENTIC_CLIENT_RPC_ADDRESS":"http://localhost:8545",
