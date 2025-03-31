@@ -14,21 +14,6 @@ The AVS MCP server acts as an interface between the AI Agents and the AVS networ
     - `price` (string): Price of the pair.  
     - `data` (string): Any additional data.  
 
-## Installation
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/Othentic-Labs/avs-mcp-example.git
-   cd avs-mcp-example
-   ```
-
-2. Install Othentic CLI:
-
-   ```bash
-   npm i -g @othentic/othentic-cli
-   ```
-
 
 ## Usage with Claude Desktop
 1. **Ensure the AVS Network is running**
@@ -80,12 +65,4 @@ can you validate this price using AVS network?
 5. **Verify the On-Chain Transaction**
 
 Check the on-chain transaction in the Attestation Center contract to confirm execution within the AVS network.
-
-
-Happy Building! 🚀
-
-
-## ⚠️ Disclaimer
-
-This repository is an experimental implementation intended for testing and development purposes only. Do not use this in production environments without conducting a thorough security audit.
 
