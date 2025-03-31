@@ -10,7 +10,7 @@
 6. [Disclaimer](#disclaimer)
 ## Overview
 
-The AVS MCP server acts as an interface between the AI Agents and the AVS network, enabling you to execute any AVS [Tasks](https://docs.othentic.xyz/main/avs-framework/othentic-consensus/task-and-task-definitions#task). 
+The AVS MCP server acts as an interface between the AI Agents and the AVS network, enabling you to execute any AVS [Tasks](https://docs.othentic.xyz/main/avs-framework/othentic-consensus/task-and-task-definitions#task) with on chain validation.
 
 ![alt text](image.png)
 
@@ -18,11 +18,11 @@ The AVS MCP server acts as an interface between the AI Agents and the AVS networ
 
 - **Decentralized Verification:** Submit tasks to the AVS network for consensus-based verification
 
-- **Blockchain Data Access:** Query real-time blockchain data for informed AI decision-making
-
-- **Cross-Chain Interactions:** Execute transactions and access liquidity across multiple blockchain networks
-
 - **Verifiable Outputs:** Generate cryptographic proofs of AI-initiated tasks
+
+- **On chain Validation:** Execute transaction on chain
+
+- **Blockchain Data Access:** Query real-time blockchain data for informed AI decision-making
 
 
 ## Components
