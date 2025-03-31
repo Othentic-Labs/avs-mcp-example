@@ -1,23 +1,34 @@
 # AVS MCP Server
 
+## Table of Contents
+
+1. [Overview](#overview)
+2. [Components](#components)
+3. [Installation](#installation)
+4. [Usage](#usage)
+5. [Next Steps](#next-steps)
+6. [Disclaimer](#disclaimer)
+## Overview
+
 The AVS MCP server acts as an interface between the AI Agents and the AVS network, enabling you to execute any AVS [Tasks](https://docs.othentic.xyz/main/avs-framework/othentic-consensus/task-and-task-definitions#task). 
 
 ![alt text](image.png)
 
-It allows AI agents to interact with various tools and decentralized networks:
+### Key Features
 
-- DeFi trading agents interface with intent solver AVS to bridge liquidity and execute transactions across VMs.
+- **Decentralized Verification:** Submit tasks to the AVS network for consensus-based verification
 
-- Autonomous agents query indexed blockchain data for real-time decision-making.
+- **Blockchain Data Access:** Query real-time blockchain data for informed AI decision-making
 
-- Workflow automation enables AI-driven actions across integrated applications.
+- **Cross-Chain Interactions:** Execute transactions and access liquidity across multiple blockchain networks
 
-- Verifiable data access through oracle AVS ensures reliable AI responses.
+- **Verifiable Outputs:** Generate cryptographic proofs of AI-initiated tasks
 
-
-The following MCP server includes functionality to fetch the `ETHUSDT` price and call the `sendTask` RPC method to trigger the AVS Task.
 
 ## Components
+[MCP Server](https://modelcontextprotocol.io/quickstart/server) requires the development of custom tools. You can create tools for generating [Proof of Task](https://docs.othentic.xyz/main/avs-framework/othentic-consensus/proof-of-task) and sending it to the AVS network. Additionally, you can integrate external resources such as APIs, databases, and local storage.
+
+The following MCP server includes functionality to fetch the `ETHUSDT` price and call the `sendTask` RPC method to trigger the AVS Task.
 
 ### Tools  
 
@@ -46,7 +57,7 @@ The following MCP server includes functionality to fetch the `ETHUSDT` price and
    ```
 
 
-## Usage with Claude Desktop
+## Usage
 1. **Ensure the AVS Network is running**
 
 Make sure your AVS network is up and running before proceeding. Refer to the [Quickstart Guide](https://docs.othentic.xyz/main/avs-framework/quick-start) for instructions on running an AVS network.
@@ -98,10 +109,24 @@ can you validate this price using AVS network?
 Check the on-chain transaction in the Attestation Center contract to confirm execution within the AVS network.
 
 
+
+## Next Steps
+- Write an MCP server for your AVS
+- Test it out and add it to the MCP Server repository.
+
+### Use Cases
+
+- **AI-Powered DeFi:** Trading agents that interface with intent solver AVS to bridge liquidity
+
+- **Autonomous Agents:** Make decisions based on real-time indexed blockchain data
+
+- **Workflow Automation:** Trigger and monitor on-chain actions across integrated applications
+
+- **Oracle Integration:** Access verifiable data through oracle AVS networks
+
 Happy Building! 🚀
 
-
-## ⚠️ Disclaimer
+## Disclaimer
 
 This repository is an experimental implementation intended for testing and development purposes only. Do not use this in production environments without conducting a thorough security audit.
 
