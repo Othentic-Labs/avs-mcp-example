@@ -83,13 +83,7 @@ Replace `ADD_ABSOLUTE_PATH` and `YOUR_PERFORMER_PRIVATE_KEY_HERE` with the appro
   "mcpServers": {
     "AVSPerformer": {
       "command": "node",
-      "args":["ADD_ABSOLUTE_PATH/avs-mcp-example/MCP_Execution_Server/build/index.js"],
-      "env": {
-        "PRIVATE_KEY_PERFORMER": "YOUR_PERFORMER_PRIVATE_KEY_HERE",
-        "OTHENTIC_CLIENT_RPC_ADDRESS":"http://localhost:8545",
-        "PINATA_API_KEY": "7824585a98fe36414d68",
-        "PINATA_SECRET_API_KEY": "41a53a837879721969e73008d91180df30dbc66097c7f75f08cd5489176b43ea",
-      }
+      "args":["ADD_ABSOLUTE_PATH/avs-mcp-example/MCP_Execution_Server/build/index.js"]
     }
   }
 }

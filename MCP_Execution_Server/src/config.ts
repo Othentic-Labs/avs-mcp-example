@@ -19,5 +19,9 @@ export const config = {
   api: {
     userAgent: "binance-app/1.0",
     binanceEndpoint: "https://api.binance.com/api/v3/ticker/price"
+  },
+  redstone: {
+    rpcEndpoint: process.env.REDSTONE_RPC_ENDPOINT ?? "",
+    contractAddress: process.env.REDSTONE_CONTRACT_ADDRESS ?? "0xf2ABAC32F9a440756Af99ed443B66f4371e532C8"
   }
 };

@@ -3,6 +3,7 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { registerPriceTool } from "../tools/price.tool.js";
 import { registerTaskTool } from "../tools/task.tool.js";
 import { registerSendTaskPrompt } from "../prompts/send-task.prompt.js";
+import { registerRedstoneGetPriceTool } from "../tools/redstone.tool.js";
 
 /**
  * Main AVS MCP server class
@@ -42,11 +43,14 @@ export class AvsMCPServer {
    */
   initializeServer() {
     // Register prompts
-    registerSendTaskPrompt(this.server);
+    // registerSendTaskPrompt(this.server);
     
-    // Register tools
-    registerPriceTool(this.server, this.services.price);
-    registerTaskTool(this.server, this.services.ipfs, this.services.avs);
+    // // Register tools
+    // registerPriceTool(this.server, this.services.price);
+    // registerTaskTool(this.server, this.services.ipfs, this.services.avs);
+
+    // register the tool to get the price of currency pair from Redstone AVS
+    registerRedstoneGetPriceTool(this.server, this.services.redstone);
   }
 
   /**

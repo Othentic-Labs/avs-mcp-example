@@ -3,6 +3,7 @@ import { IpfsService } from "./services/ipfs.service.js";
 import { AVSService } from "./services/avs.service.js";
 import { PriceService } from "./services/price.service.js";
 import { AvsMCPServer } from "./server/mcp.server.js";
+import { RedstoneService } from "./services/redstone.service.js";
 
 /**
  * Main application entry point
@@ -11,19 +12,24 @@ async function main() {
   try {
     // Initialize services
     const services = {
-      ipfs: new IpfsService(
-        config.pinata.apiKey,
-        config.pinata.secretApiKey
-      ),
+      // ipfs: new IpfsService(
+      //   config.pinata.apiKey,
+      //   config.pinata.secretApiKey
+      // ),
       
-      avs: new AVSService(
-        config.network.rpcBaseAddress,
-        config.network.privateKey
-      ),
+      // avs: new AVSService(
+      //   config.network.rpcBaseAddress,
+      //   config.network.privateKey
+      // ),
       
-      price: new PriceService(
-        config.api.userAgent,
-        config.api.binanceEndpoint
+      // price: new PriceService(
+      //   config.api.userAgent,
+      //   config.api.binanceEndpoint
+      // ),
+
+      redstone: new RedstoneService(
+        config.redstone.rpcEndpoint,
+        config.redstone.contractAddress as `0x${string}`
       )
     };
 
