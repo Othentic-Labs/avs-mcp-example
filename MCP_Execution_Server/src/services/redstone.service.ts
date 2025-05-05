@@ -47,7 +47,7 @@ export class RedstoneService {
           abi: redstoneAbi,
           functionName: 'price',
         });
-        const price = (result as bigint) / 10n ** 8n;
+        const price = Number(result) / 1e8;
 
         return price.toString();
       },
