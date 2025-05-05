@@ -84,7 +84,7 @@ Replace `ADD_ABSOLUTE_PATH` and `YOUR_PERFORMER_PRIVATE_KEY_HERE` with the appro
 You can interact with the AVS MCP Server using prompts such as:
 
 ```bash
-can you get the price of WEeth/eth using Redstone AVS?
+can you get the price of weETH/ETH using Redstone AVS?
 ```
 
 
