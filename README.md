@@ -28,18 +28,11 @@ The AVS MCP server acts as an interface between the AI Agents and the AVS networ
 ## Components
 [MCP Server](https://modelcontextprotocol.io/quickstart/server) requires the development of custom tools. You can create tools for generating [Proof of Task](https://docs.othentic.xyz/main/avs-framework/othentic-consensus/proof-of-task) and sending it to the AVS network. Additionally, you can integrate external resources such as APIs, databases, and local storage.
 
-The following MCP server includes functionality to fetch the `ETHUSDT` price and call the `sendTask` RPC method to trigger the AVS Task.
-
 ### Tools  
 
 - **get-price**: Fetches the price of a cryptocurrency pair using the Binance API.  
   - **Input:**  
-    - `pair` (string): The name of the cryptocurrency pair (e.g., `ETHUSDT`).  
-
-- **send-task**  
-  - **Input:**  
-    - `price` (string): Price of the pair.  
-    - `data` (string): Any additional data.  
+    - `pair` (string): The name of the cryptocurrency pair (e.g., `ETHUSDT`).   
 
 ## Installation
 
@@ -48,6 +41,7 @@ The following MCP server includes functionality to fetch the `ETHUSDT` price and
    ```bash
    git clone https://github.com/Othentic-Labs/avs-mcp-example.git
    cd avs-mcp-example
+   git checkout read-avs-data
    ```
 
 2. Install Othentic CLI:
@@ -58,11 +52,7 @@ The following MCP server includes functionality to fetch the `ETHUSDT` price and
 
 
 ## Usage
-1. **Ensure the AVS Network is running**
-
-Make sure your AVS network is up and running before proceeding. Refer to the [Quickstart Guide](https://docs.othentic.xyz/main/avs-framework/quick-start) for instructions on running an AVS network.
-
-2. **Build the MCP server**
+1. **Build the MCP server**
 
 Run the following commands to compile the server:
 
@@ -72,7 +62,7 @@ npm i
 npm run build
 ```
 
-3. **Configure Claude Desktop**
+2. **Configure Claude Desktop**
    
 Add the configuration for the MCP Server in your `claude_desktop_config.json` file. Detailed instructions are available in the Claude Desktop [Configuration Guide](https://modelcontextprotocol.io/quickstart/user).
 
@@ -89,19 +79,13 @@ Replace `ADD_ABSOLUTE_PATH` and `YOUR_PERFORMER_PRIVATE_KEY_HERE` with the appro
 }
 ```
 
-4. **Sample Prompts**
+3. **Sample Prompts**
    
 You can interact with the AVS MCP Server using prompts such as:
 
 ```bash
-can you get the price of ETHUSDT?
-can you validate this price using AVS network?
+can you get the price of WEeth/eth using Redstone AVS?
 ```
-
-5. **Verify the On-Chain Transaction**
-
-Check the on-chain transaction in the Attestation Center contract to confirm execution within the AVS network.
-
 
 
 ## Next Steps
