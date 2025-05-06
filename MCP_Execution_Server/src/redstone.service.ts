@@ -1,6 +1,6 @@
 import { createPublicClient, http } from 'viem';
 import { base } from 'viem/chains';
-import { asyncHandler } from '../utils/error.util.js';
+import { asyncHandler } from './error.util.js';
 
 
 const redstoneAbi = [
@@ -34,7 +34,7 @@ export class RedstoneService {
     this.contractAddress = contractAddress;
   }
 
-  /**
+  /** 
    * Gets current price for a token from the Redstone contract
    * @param {string} token - Token symbol (e.g., "ETH")
    * @returns {Promise<string>} - Current price as string
