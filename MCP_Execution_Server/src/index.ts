@@ -1,4 +1,3 @@
-import { Server } from "@modelcontextprotocol/sdk/server/index.js";
 import { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse.js";
 import express from "express";
 import { z } from "zod";
@@ -14,25 +13,9 @@ const redstoneService = new RedstoneService(
 );
 
 const server = new McpServer({
-  name: "example-server",
+  name: "AVS-server",
   version: "1.0.0"
-},
-//  {
-//   capabilities: {
-//     "get-price": {
-//       handler: async ({ pair }: { pair: string }) => {
-//         try {
-//           const price = await redstoneService.getPrice(pair);
-//           return { price };
-//         } catch (error) {
-//           console.error("Error getting price:", error);
-//           throw new Error(`Failed to get price for ${pair}`);
-//         }
-//       }
-//     }
-//   }
-// }
-);
+});
 
 server.tool(
 	"get-price",

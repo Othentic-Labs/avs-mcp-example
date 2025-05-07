@@ -22,7 +22,7 @@ Update with this configuration:
 ```json
 {
   "mcpServers": {
-    "calculator": {
+    "AVS-Server": {
       "command": "npx",
       "args": [
         "mcp-remote",
