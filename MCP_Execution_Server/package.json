@@ -1,24 +1,25 @@
 {
-  "name": "remote-avs-mcp-server",
-  "version": "0.0.0",
-  "private": true,
+  "name": "mcp-execution-server",
+  "version": "1.0.0",
+  "description": "MCP Execution Server with Redstone Price Feed",
+  "type": "module",
+  "main": "dist/index.js",
   "scripts": {
-    "deploy": "wrangler deploy",
-    "dev": "wrangler dev",
-    "format": "biome format --write",
-    "lint:fix": "biome lint --fix",
-    "start": "wrangler dev",
-    "cf-typegen": "wrangler types"
-  },
-  "devDependencies": {
-    "@cloudflare/workers-types": "^4.20250506.0",
-    "typescript": "^5.5.2",
-    "wrangler": "^4.14.1"
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "node --loader ts-node/esm src/index.ts"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.7.0",
-    "agents": "^0.0.65",
-    "viem": "^2.29.0",
-    "zod": "^3.24.2"
+    "@modelcontextprotocol/sdk": "latest",
+    "agents": "latest",
+    "express": "^4.18.2",
+    "viem": "^2.7.9",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.11.19",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
   }
 }

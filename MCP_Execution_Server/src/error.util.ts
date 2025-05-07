@@ -4,11 +4,14 @@
  * @param {string} errorMessage - Custom error message prefix
  * @returns {Promise<any>} - Result of the function or throws error
  */
-export async function asyncHandler(fn: any, errorMessage: any) {
-    try {
-      return await fn();
-    } catch (error: any) {
-      console.error(`${errorMessage}:`, error);
-      throw new Error(`${errorMessage}: ${error.message || 'Unknown error'}`);
-    }
+export async function asyncHandler<T>(
+  fn: () => Promise<T>,
+  errorMessage: string
+): Promise<T> {
+  try {
+    return await fn();
+  } catch (error) {
+    console.error(errorMessage, error);
+    throw new Error(errorMessage);
   }
+}

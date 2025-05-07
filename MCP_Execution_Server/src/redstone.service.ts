@@ -2,7 +2,6 @@ import { createPublicClient, http } from 'viem';
 import { base } from 'viem/chains';
 import { asyncHandler } from './error.util.js';
 
-
 const redstoneAbi = [
   {
     inputs: [],
@@ -22,6 +21,7 @@ const redstoneAbi = [
 export class RedstoneService {
   client: any;
   contractAddress: `0x${string}`;
+  
   constructor(
     rpcUrl: string,
     contractAddress: `0x${string}`

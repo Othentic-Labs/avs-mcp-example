@@ -25,7 +25,7 @@ Update with this configuration:
       "command": "npx",
       "args": [
         "mcp-remote",
-        "http://localhost:8787/sse"  
+        "http://localhost:3000/sse"  
       ]
     }
   }

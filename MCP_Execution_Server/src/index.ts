@@ -1,68 +1,65 @@
-import { McpAgent } from "agents/mcp";
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { Server } from "@modelcontextprotocol/sdk/server/index.js";
+import { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse.js";
+import express from "express";
 import { z } from "zod";
-import { RedstoneService } from "./redstone.service";
+import { RedstoneService } from "./redstone.service.js";
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 
-// Define our MCP agent with tools
-export class MyMCP extends McpAgent {
-	server = new McpServer({
-		name: "Authless Calculator",
-		version: "1.0.0",
-	});
+const app = express();
 
-	async init() {
-		let redstoneService = new RedstoneService(
-			"",
-			"0xf2ABAC32F9a440756Af99ed443B66f4371e532C8"
-		  )
+// Initialize Redstone service
+const redstoneService = new RedstoneService(
+  process.env.RPC_URL || "https://mainnet.base.org",
+  (process.env.REDSTONE_CONTRACT_ADDRESS || "0xf2ABAC32F9a440756Af99ed443B66f4371e532C8") as `0x${string}`
+);
 
-		// Redstone AVS tool with validated price data
-		this.server.tool(
-			"get-price",
-			{
-				pair: z.string().describe("Pair to query price data"),
-			},
-			async ({ pair }: { pair: string }) => {
-				try {
-				  const price = await redstoneService.getPrice(pair);
-				  return {
-					content: [
-					  {
-						type: "text",
-						text: `Price of ${pair}: ${price}`,
-					  },
-					],
-				  };
-				} catch (error) {
-				  console.error("Error in price tool:", error);
-				  return {
-					content: [
-					  {
-						type: "text",
-						text: "Failed to retrieve price data",
-					  },
-					],
-				  };
-				}
-			}
-		);
-	}
-}
+const server = new McpServer({
+  name: "example-server",
+  version: "1.0.0"
+},
+//  {
+//   capabilities: {
+//     "get-price": {
+//       handler: async ({ pair }: { pair: string }) => {
+//         try {
+//           const price = await redstoneService.getPrice(pair);
+//           return { price };
+//         } catch (error) {
+//           console.error("Error getting price:", error);
+//           throw new Error(`Failed to get price for ${pair}`);
+//         }
+//       }
+//     }
+//   }
+// }
+);
 
-export default {
-	fetch(request: Request, env: Env, ctx: ExecutionContext) {
-		const url = new URL(request.url);
-
-		if (url.pathname === "/sse" || url.pathname === "/sse/message") {
-			// @ts-ignore
-			return MyMCP.serveSSE("/sse").fetch(request, env, ctx);
-		}
-
-		if (url.pathname === "/mcp") {
-			// @ts-ignore
-			return MyMCP.serve("/mcp").fetch(request, env, ctx);
-		}
-
-		return new Response("Not found", { status: 404 });
+server.tool(
+	"get-price",
+	{
+	  pair: z.string().describe("Token pair to fetch price for"),
 	},
-};
+	async ({ pair }) => {
+	  try {
+		const price = await redstoneService.getPrice(pair);
+		return { content: [{ type: "text", text: `Price of ${pair}: ${price}` }] };
+	  } catch (e) {
+		throw new Error(`Failed to fetch price for ${pair}`);
+	  }
+	}
+  );
+
+let transport: SSEServerTransport | null = null;
+
+app.get("/sse", (req, res) => {
+  transport = new SSEServerTransport("/messages", res);
+  server.connect(transport);
+});
+
+app.post("/messages", (req, res) => {
+  if (transport) {
+    transport.handlePostMessage(req, res);
+  }
+});
+
+app.listen(3000);
