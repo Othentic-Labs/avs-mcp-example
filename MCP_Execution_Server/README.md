@@ -38,7 +38,6 @@ Restart Claude and you should see the tools become available.
 You can query following
 ```
 get the price of weETH/ETH from redstone AVS
-
 ```
 
 ## Customizing your AVS MCP Server

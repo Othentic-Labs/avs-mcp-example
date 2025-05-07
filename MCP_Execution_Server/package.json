@@ -1,7 +1,7 @@
 {
   "name": "mcp-execution-server",
   "version": "1.0.0",
-  "description": "MCP Execution Server with Redstone Price Feed",
+  "description": "AVS MCP Server with Redstone Price Feed",
   "type": "module",
   "main": "dist/index.js",
   "scripts": {
