@@ -7,6 +7,7 @@ This example showcases How to run a remote AVS MCP Server. It fetches weETH/ETH 
 ```bash
 cd MCP_Execution_Server
 npm i
+npm run build
 npm run start
 ```
 
@@ -42,12 +43,4 @@ get the price of weETH/ETH from redstone AVS
 
 ## Customizing your AVS MCP Server
 
-To add your own AVS to the MCP server, define each tool inside the `init()` method of `src/index.ts` using `this.server.tool(...)`. 
-
-## Connect to Cloudflare AI Playground
-
-You can connect to your MCP server from the Cloudflare AI Playground, which is a remote MCP client:
-
-1. Go to https://playground.ai.cloudflare.com/
-2. Enter your deployed MCP server URL (`remote-mcp-server-authless.<your-account>.workers.dev/sse`)
-3. You can now use your MCP tools directly from the playground!
+To add your own AVS to the MCP server, define each tool inside `src/index.ts` using `this.server.tool(...)`. 
