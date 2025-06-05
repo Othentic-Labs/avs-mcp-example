@@ -1,4 +1,4 @@
-# AVS MCP Server
+# AVS MCP TEE Server
 
 ## Table of Contents
 
@@ -10,7 +10,7 @@
 6. [Disclaimer](#disclaimer)
 ## Overview
 
-The AVS MCP server acts as an interface between the AI Agents and the AVS network, enabling you to execute any AVS [Tasks](https://docs.othentic.xyz/main/avs-framework/othentic-consensus/task-and-task-definitions#task) with on chain validation.
+The AVS MCP server acts as an interface between the AI Agents and the AVS network, enabling you to execute any AVS [Tasks](https://docs.othentic.xyz/main/avs-framework/othentic-consensus/task-and-task-definitions#task) with on chain validation. The MCP server runs securely inside a Trusted Execution Environment (TEE) to ensure integrity and confidentiality.
 
 ![alt text](image.png)
 
