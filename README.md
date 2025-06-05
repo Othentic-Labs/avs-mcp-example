@@ -10,7 +10,7 @@
 6. [Disclaimer](#disclaimer)
 ## Overview
 
-The AVS MCP server acts as an interface between the AI Agents and the AVS network, enabling you to execute any AVS [Tasks](https://docs.othentic.xyz/main/avs-framework/othentic-consensus/task-and-task-definitions#task) with on chain validation. The MCP server runs securely inside a Trusted Execution Environment (TEE) to ensure integrity and confidentiality.
+The AVS MCP server acts as an interface between the AI Agents and the AVS network, enabling you to read data validated by an AVS. The MCP server runs securely inside a Trusted Execution Environment (TEE) to ensure integrity and confidentiality.
 
 ![alt text](image.png)
 
@@ -30,7 +30,7 @@ The AVS MCP server acts as an interface between the AI Agents and the AVS networ
 
 ### Tools  
 
-- **get-price**: Fetches the price of a cryptocurrency pair using the Binance API.  
+- **get-price**: Fetches the price of a cryptocurrency pair from the Redstone AVS.  
   - **Input:**  
     - `pair` (string): The name of the cryptocurrency pair (e.g., `ETHUSDT`).   
 
