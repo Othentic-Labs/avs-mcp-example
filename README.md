@@ -10,7 +10,7 @@
 6. [Disclaimer](#disclaimer)
 ## Overview
 
-The AVS MCP server acts as an interface between the AI Agents and the AVS network, enabling you to execute any AVS [Tasks](https://docs.othentic.xyz/main/avs-framework/othentic-consensus/task-and-task-definitions#task) with on chain validation.
+The AVS MCP server acts as an interface between the AI Agents and the AVS network, enabling you to execute any AVS [Tasks](https://docs.othentic.xyz/main/learn/core-concepts/tasks/task-definitions) with on chain validation.
 
 ![alt text](image.png)
 
@@ -26,7 +26,7 @@ The AVS MCP server acts as an interface between the AI Agents and the AVS networ
 
 
 ## Components
-[MCP Server](https://modelcontextprotocol.io/quickstart/server) requires the development of custom tools. You can create tools for generating [Proof of Task](https://docs.othentic.xyz/main/avs-framework/othentic-consensus/proof-of-task) and sending it to the AVS network. Additionally, you can integrate external resources such as APIs, databases, and local storage.
+[MCP Server](https://modelcontextprotocol.io/quickstart/server) requires the development of custom tools. You can create tools for generating [Proof of Task](https://docs.othentic.xyz/main/learn/core-concepts/tasks/proof-of-task) and sending it to the AVS network. Additionally, you can integrate external resources such as APIs, databases, and local storage.
 
 The following MCP server includes functionality to fetch the `ETHUSDT` price and call the `sendTask` RPC method to trigger the AVS Task.
 
@@ -60,7 +60,7 @@ The following MCP server includes functionality to fetch the `ETHUSDT` price and
 ## Usage
 1. **Ensure the AVS Network is running**
 
-Make sure your AVS network is up and running before proceeding. Refer to the [Quickstart Guide](https://docs.othentic.xyz/main/avs-framework/quick-start) for instructions on running an AVS network.
+Make sure your AVS network is up and running before proceeding. Refer to the [Quickstart Guide](https://docs.othentic.xyz/main/welcome/getting-started/install-othentic-cli) for instructions on running an AVS network.
 
 2. **Build the MCP server**
 
