@@ -26,7 +26,7 @@ The AVS MCP server acts as an interface between the AI Agents and the AVS networ
 
 
 ## Components
-[MCP Server](https://modelcontextprotocol.io/quickstart/server) requires the development of custom tools. You can create tools for generating [Proof of Task](https://docs.othentic.xyz/main/avs-framework/othentic-consensus/proof-of-task) and sending it to the AVS network. Additionally, you can integrate external resources such as APIs, databases, and local storage.
+[MCP Server](https://modelcontextprotocol.io/quickstart/server) requires the development of custom tools. You can create tools for generating [Proof of Task](https://docs.othentic.xyz/main/learn/core-concepts/tasks/proof-of-task) and sending it to the AVS network. Additionally, you can integrate external resources such as APIs, databases, and local storage.
 
 ### Tools  
 
