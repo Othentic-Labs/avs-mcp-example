@@ -1,5 +1,5 @@
 version: '3.7'
-x-othentic-cli: &othentic-cli
+x-otnode: &otnode
   env_file:
     - .env
   build:
@@ -7,9 +7,9 @@ x-othentic-cli: &othentic-cli
     dockerfile: ./Dockerfile
 services:
   aggregator:
-    <<: *othentic-cli
+    <<: *otnode
     command: [
-      "node",
+      "run",
       "aggregator",
       "--json-rpc",
       "--l1-chain", "holesky",
@@ -26,9 +26,9 @@ services:
       p2p:
         ipv4_address: 10.8.0.69
   attester-1:
-    <<: *othentic-cli
+    <<: *otnode
     command: [
-      "node",
+      "run",
       "attester",
       "/ip4/10.8.0.69/tcp/9876/p2p/${OTHENTIC_BOOTSTRAP_ID}",
       "--avs-webapi",
@@ -46,9 +46,9 @@ services:
       p2p:
         ipv4_address: 10.8.0.2
   attester-2:
-    <<: *othentic-cli
+    <<: *otnode
     command: [
-      "node",
+      "run",
       "attester",
       "/ip4/10.8.0.69/tcp/9876/p2p/${OTHENTIC_BOOTSTRAP_ID}",
       "--avs-webapi",
@@ -66,9 +66,9 @@ services:
       p2p:
         ipv4_address: 10.8.0.3
   attester-3:
-    <<: *othentic-cli
+    <<: *otnode
     command: [
-      "node",
+      "run",
       "attester",
       "/ip4/10.8.0.69/tcp/9876/p2p/${OTHENTIC_BOOTSTRAP_ID}",
       "--avs-webapi",

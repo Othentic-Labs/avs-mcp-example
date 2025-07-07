@@ -18,7 +18,8 @@ async function main() {
       
       avs: new AVSService(
         config.network.rpcBaseAddress,
-        config.network.privateKey
+        config.network.privateKey,
+        config.network.performerAddress
       ),
       
       price: new PriceService(

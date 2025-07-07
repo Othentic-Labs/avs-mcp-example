@@ -1,21 +1,19 @@
 import { ethers } from 'ethers';
 import { asyncHandler } from "../utils/error.util.js";
-
+import { getSigningKey, sign } from "../utils/mcl.js";
 /**
  * Service for AVS operations
  */
 export class AVSService {
   rpcBaseAddress: string;
   privateKey: string;
-  wallet: ethers.Wallet;
   performerAddress: any;
   provider: ethers.JsonRpcProvider;
 
-  constructor(rpcBaseAddress: string, privateKey: string) {
+  constructor(rpcBaseAddress: string, privateKey: string, performerAddress: string) {
     this.rpcBaseAddress = rpcBaseAddress;
     this.privateKey = privateKey;
-    this.wallet = new ethers.Wallet(privateKey ?? "");
-    this.performerAddress = this.wallet.address;
+    this.performerAddress = performerAddress;
     this.provider = new ethers.JsonRpcProvider(rpcBaseAddress);
   }
 
@@ -37,14 +35,17 @@ export class AVSService {
         );
         
         const messageHash = ethers.keccak256(message);
-        const sig = this.wallet.signingKey.sign(messageHash).serialized;
+        const signingKey = getSigningKey(this.privateKey);
+        const sig = sign(signingKey, messageHash);
+        const sigType = 'bls';
 
         return await this.provider.send("sendTask", [
           proofOfTask,
           encodedData,
           taskDefinitionId,
           this.performerAddress,
-          sig
+          sig,
+          sigType
         ]);
       }, 
       "Error sending task to AVS Network"

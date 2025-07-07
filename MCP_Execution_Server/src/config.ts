@@ -10,7 +10,8 @@ export const config = {
   },
   network: {
     rpcBaseAddress: process.env.OTHENTIC_CLIENT_RPC_ADDRESS ?? "http://localhost:8545",
-    privateKey: process.env.PRIVATE_KEY_PERFORMER ?? "0x"
+    privateKey: process.env.PRIVATE_KEY_PERFORMER ?? "0x",
+    performerAddress: process.env.PERFORMER_ADDRESS ?? "0x"
   },
   pinata: {
     apiKey: process.env.PINATA_API_KEY ?? '7824585a98fe36414d68',
